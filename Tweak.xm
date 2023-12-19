@@ -19,19 +19,31 @@
 + (UIColor *)systemFillColor { return colors[BASE]; }
 + (UIColor *)systemGroupedBackgroundColor { return colors[BASE]; }
 + (UIColor *)groupTableViewBackgroundColor { return colors[BASE]; }
++ (UIColor *)tableCellPlainBackgroundColor { return colors[BASE]; }
 
 + (UIColor *)tableCellGroupedBackgroundColor { return colors[MANTLE]; }
 + (UIColor *)tertiarySystemFillColor { return colors[MANTLE]; }
++ (UIColor *)secondarySystemGroupedBackgroundColor { return colors[MANTLE]; }
+
++ (UIColor *)tertiarySystemBackgroundColor { return colors[CRUST]; }
 
 + (UIColor *)systemBlueColor { return colors[ACCENT]; }
 + (UIColor *)linkColor { return colors[ACCENT]; }
 
++ (UIColor *)systemGray4Color { return colors[SURFACE0]; }
 + (UIColor *)systemGray5Color { return colors[SURFACE0]; }
++ (UIColor *)tertiaryLabelColor { return colors[SURFACE0]; }
++ (UIColor *)opaqueSeparatorColor { return colors[SURFACE0]; }
 
 + (UIColor *)secondaryLabelColor { return colors[SUBTEXT0]; }
+
 + (UIColor *)placeholderTextColor { return colors[SUBTEXT1]; }
 
 + (UIColor *)systemGreenColor { return colors[GREEN]; }
+
++ (UIColor *)systemRedColor { return colors[RED]; }
+
++ (UIColor *)systemYellowColor { return colors[YELLOW]; }
 %end
 
 %hook _UIStatusBar
