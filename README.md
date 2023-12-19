@@ -6,9 +6,9 @@
 </h3>
 
 <p align="center">
-	<a href="https://github.com/CallMeEcho/catppuccin-ios/stargazers"><img src="https://img.shields.io/github/stars/CallMeEcho/catppuccin-ios?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
-	<a href="https://github.com/CallMeEcho/catppuccin-ios/issues"><img src="https://img.shields.io/github/issues/CallMeEcho/catppuccin-ios?colorA=363a4f&colorB=f5a97f&style=for-the-badge"></a>
-	<a href="https://github.com/CallMeEcho/catppuccin-ios/contributors"><img src="https://img.shields.io/github/contributors/CallMeEcho/catppuccin-ios?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
+	<a href="https://github.com/CallMeEchoCodes/catppuccin-ios/stargazers"><img src="https://img.shields.io/github/stars/CallMeEchoCodes/catppuccin-ios?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
+	<a href="https://github.com/CallMeEchoCodes/catppuccin-ios/issues"><img src="https://img.shields.io/github/issues/CallMeEchoCodes/catppuccin-ios?colorA=363a4f&colorB=f5a97f&style=for-the-badge"></a>
+	<a href="https://github.com/CallMeEchoCodes/catppuccin-ios/contributors"><img src="https://img.shields.io/github/contributors/CallMeEchoCodes/catppuccin-ios?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
 </p>
 
 <p align="center">
