@@ -1,0 +1,9 @@
+Package: com.catppuccin.ios
+Name: Catppuccin for iOS
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: Soothing pastel theme for iOS
+Maintainer: CallMeEcho
+Author: CallMeEcho
+Section: Tweaks
+Depends: mobilesubstrate, preferenceloader

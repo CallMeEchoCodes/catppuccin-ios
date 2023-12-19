@@ -1,0 +1,40 @@
+name: Build
+
+on:
+    push:
+        branches:
+            - main
+        paths-ignore:
+            - "README.md"
+            - "LICENSE"
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: macos-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+              with:
+                repository: ${{ github.repository }}
+                submodules: true
+
+            - name: Setup Theos
+              uses: beerpiss/theos-action@v1
+              with:
+                cache: true
+                cache-dir-theos: ${{ github.workspace }}/theos
+                cache-dir-sdks: ${{ github.workspace }}/theos/sdks
+
+            - name: Build package
+              run: |
+                rm -f packages/*
+                FINALPACKAGE=1 make clean package
+                FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless make clean package
+
+            - name: Upload package
+              uses: actions/upload-artifact@v4
+              with:
+                name: 'Package'
+                path: ${{ github.workspace }}/packages/*.deb
