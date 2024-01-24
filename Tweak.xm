@@ -20,6 +20,7 @@
 + (UIColor *)systemGroupedBackgroundColor { return colors[BASE]; }
 + (UIColor *)groupTableViewBackgroundColor { return colors[BASE]; }
 + (UIColor *)tableCellPlainBackgroundColor { return colors[BASE]; }
++ (UIColor *)secondarySystemFillColor { return colors[BASE]; }
 
 + (UIColor *)tableCellGroupedBackgroundColor { return colors[MANTLE]; }
 + (UIColor *)tertiarySystemFillColor { return colors[MANTLE]; }
@@ -57,6 +58,18 @@
 %hook _UIKBCompatInputView
 - (void)didMoveToWindow { %orig; self.backgroundColor = colors[BASE]; }
 %end
+
+%hook _UIVisualEffectBackdropView
+-(void)setFilters:(NSArray *)arg1 {
+    NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id object, NSDictionary *bindings) {
+        return [[object filterType] isEqualToString:@"gaussianBlur"];
+    }];
+    NSArray *filtered = [arg1 filteredArrayUsingPredicate:predicate];
+    self.backgroundColor = [colors[BASE] colorWithAlphaComponent:0.5];
+    %orig(filtered);
+}
+%end
+
 %end
 
 %group YouTubeGroup
@@ -65,10 +78,11 @@
 - (UIColor *)background2 { return colors[MANTLE]; }
 - (UIColor *)background3 { return colors[CRUST]; }
 
+- (UIColor *)staticBlue { return colors[ACCENT]; }
+
 - (UIColor *)brandBackgroundSolid { return colors[MANTLE]; }
 - (UIColor *)brandBackgroundPrimary { return colors[MANTLE]; }
 - (UIColor *)brandBackgroundSecondary { return colors[CRUST]; }
-
 
 - (UIColor *)generalBackgroundA { return colors[BASE]; }
 - (UIColor *)generalBackgroundB { return colors[MANTLE]; }
@@ -77,18 +91,22 @@
 - (UIColor *)textPrimary { return colors[TEXT]; }
 - (UIColor *)textSecondary { return colors[SUBTEXT0]; }
 - (UIColor *)textDisabled { return colors[OVERLAY0]; }
+- (UIColor *)textPrimaryInverse { return colors[BASE]; }
 
-- (UIColor *)overlayTextPrimary { return colors[TEXT]; }
-- (UIColor *)overlayTextSecondary { return colors[SUBTEXT0]; }
-- (UIColor *)overlayTextTertiary { return colors[OVERLAY2]; }
+- (UIColor *)callToAction { return colors[ACCENT]; }
+- (UIColor *)callToActionInverse { return colors[BASE]; }
 
-- (UIColor *)brandLinkText { return colors[TEXT]; }
+- (UIColor *)iconActive { return colors[ACCENT]; }
+- (UIColor *)iconActiveOther { return colors[TEXT]; }
+- (UIColor *)iconInactive { return colors[SUBTEXT0]; }
+- (UIColor *)iconDisabled { return colors[OVERLAY0]; }
 
-- (UIColor *)outline { return colors[OVERLAY2]; }
+- (UIColor *)themedBlue { return colors[BLUE]; }
+- (UIColor *)themedGreen { return colors[GREEN]; }
 
-- (UIColor *)baseBackground { return colors[BASE]; }
-
+- (UIColor *)staticBrandRed { return colors[RED]; }
 - (UIColor *)staticBrandWhite { return colors[TEXT]; }
+- (UIColor *)staticBrandBlack { return colors[BASE]; }
 %end
 %end
 
