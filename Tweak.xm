@@ -21,6 +21,7 @@
 + (UIColor *)groupTableViewBackgroundColor { return colors[BASE]; }
 + (UIColor *)tableCellPlainBackgroundColor { return colors[BASE]; }
 + (UIColor *)secondarySystemFillColor { return colors[BASE]; }
++ (UIColor *)tableBackgroundColor { return colors[BASE]; }
 
 + (UIColor *)tableCellGroupedBackgroundColor { return colors[MANTLE]; }
 + (UIColor *)tertiarySystemFillColor { return colors[MANTLE]; }
@@ -35,12 +36,21 @@
 + (UIColor *)systemGray5Color { return colors[SURFACE0]; }
 + (UIColor *)tertiaryLabelColor { return colors[SURFACE0]; }
 + (UIColor *)opaqueSeparatorColor { return colors[SURFACE0]; }
++ (UIColor *)separatorColor { return colors[SURFACE0]; }
++ (UIColor *)_separatorColor { return colors[SURFACE0]; }
++ (UIColor *)tableSeparatorColor { return colors[SURFACE0]; }
++ (UIColor *)tableSeparatorDarkColor { return colors[SURFACE0]; }
++ (UIColor *)tableSeparatorLightColor { return colors[SURFACE0]; }
 
 + (UIColor *)secondaryLabelColor { return colors[SUBTEXT0]; }
 
 + (UIColor *)placeholderTextColor { return colors[SUBTEXT1]; }
 
+
+
 + (UIColor *)systemGreenColor { return colors[GREEN]; }
+
++ (UIColor *)cyanColor { return colors[TEAL]; }
 
 + (UIColor *)systemRedColor { return colors[RED]; }
 
@@ -60,12 +70,16 @@
 %end
 
 %hook _UIVisualEffectBackdropView
--(void)setFilters:(NSArray *)arg1 {
+- (void)setFilters:(NSArray *)arg0 {
+    __block BOOL hasBlur = NO;
     NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id object, NSDictionary *bindings) {
-        return [[object filterType] isEqualToString:@"gaussianBlur"];
+        BOOL isBlur = [[object filterType] isEqualToString:@"gaussianBlur"];
+        hasBlur = hasBlur || isBlur;
+        return isBlur;
     }];
-    NSArray *filtered = [arg1 filteredArrayUsingPredicate:predicate];
-    self.backgroundColor = [colors[BASE] colorWithAlphaComponent:0.5];
+    NSArray *filtered = [arg0 filteredArrayUsingPredicate:predicate];
+    if (hasBlur) self.backgroundColor = [colors[BASE] colorWithAlphaComponent:0.5];
+    else filtered = arg0;
     %orig(filtered);
 }
 %end
