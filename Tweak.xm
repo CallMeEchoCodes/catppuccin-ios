@@ -15,6 +15,7 @@
 + (UIColor *)labelColor { return colors[TEXT]; }
 
 + (UIColor *)systemBackgroundColor { return colors[BASE]; }
++ (UIColor *)_windowBackgroundColor { return colors[BASE]; }
 + (UIColor *)secondarySystemBackgroundColor { return colors[BASE]; }
 + (UIColor *)systemFillColor { return colors[BASE]; }
 + (UIColor *)systemGroupedBackgroundColor { return colors[BASE]; }
@@ -26,11 +27,20 @@
 + (UIColor *)tableCellGroupedBackgroundColor { return colors[MANTLE]; }
 + (UIColor *)tertiarySystemFillColor { return colors[MANTLE]; }
 + (UIColor *)secondarySystemGroupedBackgroundColor { return colors[MANTLE]; }
++ (UIColor *)_tertiarySystemGroupedBackgroundColor { return colors[MANTLE]; }
 
 + (UIColor *)tertiarySystemBackgroundColor { return colors[CRUST]; }
 
 + (UIColor *)systemBlueColor { return colors[ACCENT]; }
 + (UIColor *)linkColor { return colors[ACCENT]; }
++ (UIColor *)blueColor { return colors[ACCENT]; }
++ (UIColor *)insertionPointColor { return colors[ACCENT]; }
++ (UIColor *)selectionHighlightColor { return [colors[ACCENT] colorWithAlphaComponent:0.25]; }
++ (UIColor *)selectionGrabberColor { return colors[ACCENT]; }
++ (UIColor *)_systemInteractionTintColor { return colors[ACCENT]; }
+
++ (UIColor *)systemGrayColor { return colors[SURFACE1]; }
++ (UIColor *)grayColor { return colors[SURFACE1]; }
 
 + (UIColor *)systemGray4Color { return colors[SURFACE0]; }
 + (UIColor *)systemGray5Color { return colors[SURFACE0]; }
@@ -41,20 +51,50 @@
 + (UIColor *)tableSeparatorColor { return colors[SURFACE0]; }
 + (UIColor *)tableSeparatorDarkColor { return colors[SURFACE0]; }
 + (UIColor *)tableSeparatorLightColor { return colors[SURFACE0]; }
++ (UIColor *)systemDarkGrayColor { return colors[SURFACE0]; }
++ (UIColor *)darkGrayColor { return colors[SURFACE0]; }
 
 + (UIColor *)secondaryLabelColor { return colors[SUBTEXT0]; }
++ (UIColor *)lightTextColor { return colors[SUBTEXT0]; }
 
 + (UIColor *)placeholderTextColor { return colors[SUBTEXT1]; }
 
-
++ (UIColor *)lightGrayColor { return colors[OVERLAY2]; }
 
 + (UIColor *)systemGreenColor { return colors[GREEN]; }
++ (UIColor *)greenColor { return colors[GREEN]; }
 
-+ (UIColor *)cyanColor { return colors[TEAL]; }
++ (UIColor *)systemOrangeColor { return colors[PEACH]; }
++ (UIColor *)orangeColor { return colors[PEACH]; }
+
++ (UIColor *)systemCyanColor { return colors[SKY]; }
++ (UIColor *)cyanColor { return colors[SKY]; }
+
++ (UIColor *)systemMintColor { return colors[TEAL]; }
++ (UIColor *)mintColor { return colors[TEAL]; }
++ (UIColor *)systemTealColor { return colors[TEAL]; }
++ (UIColor *)tealColor { return colors[TEAL]; }
+
++ (UIColor *)systemPurpleColor { return colors[MAUVE]; }
++ (UIColor *)purpleColor { return colors[MAUVE]; }
++ (UIColor *)systemIndigoColor { return colors[MAUVE]; }
++ (UIColor *)indigoColor { return colors[MAUVE]; }
+
++ (UIColor *)systemMagentaColor { return colors[PINK]; }
++ (UIColor *)magentaColor { return colors[PINK]; }
++ (UIColor *)systemPinkColor { return colors[PINK]; }
++ (UIColor *)pinkColor { return colors[PINK]; }
 
 + (UIColor *)systemRedColor { return colors[RED]; }
++ (UIColor *)redColor { return colors[RED]; }
++ (UIColor *)systemDarkRedColor { return colors[RED]; }
++ (UIColor *)darkRedColor { return colors[RED]; }
+
++ (UIColor *)systemBrownColor { return colors[ROSEWATER]; }
++ (UIColor *)brownColor { return colors[ROSEWATER]; }
 
 + (UIColor *)systemYellowColor { return colors[YELLOW]; }
++ (UIColor *)yellowColor { return colors[YELLOW]; }
 %end
 
 %hook _UIStatusBar
@@ -108,12 +148,16 @@
 - (UIColor *)textPrimaryInverse { return colors[BASE]; }
 
 - (UIColor *)callToAction { return colors[ACCENT]; }
-- (UIColor *)callToActionInverse { return colors[BASE]; }
 
 - (UIColor *)iconActive { return colors[ACCENT]; }
 - (UIColor *)iconActiveOther { return colors[TEXT]; }
 - (UIColor *)iconInactive { return colors[SUBTEXT0]; }
 - (UIColor *)iconDisabled { return colors[OVERLAY0]; }
+
+- (UIColor *)brandIconActive { return colors[TEXT]; }
+- (UIColor *)brandIconInactive { return colors[OVERLAY0]; }
+
+- (UIColor *)brandLinkText { return colors[TEXT]; }
 
 - (UIColor *)themedBlue { return colors[BLUE]; }
 - (UIColor *)themedGreen { return colors[GREEN]; }
@@ -121,6 +165,33 @@
 - (UIColor *)staticBrandRed { return colors[RED]; }
 - (UIColor *)staticBrandWhite { return colors[TEXT]; }
 - (UIColor *)staticBrandBlack { return colors[BASE]; }
+
+- (UIColor *)staticAdYellow { return colors[YELLOW]; }
+- (UIColor *)staticGrey { return colors[OVERLAY0]; }
+
+- (UIColor *)overlayTextPrimary { return colors[TEXT]; }
+- (UIColor *)overlayTextSecondary { return colors[SUBTEXT0]; }
+- (UIColor *)overlayTextTertiary { return colors[OVERLAY0]; }
+
+- (UIColor *)overlayIconActiveCallToAction { return colors[ACCENT]; }
+- (UIColor *)overlayIconActiveOther { return colors[TEXT]; }
+- (UIColor *)overlayIconInactive { return colors[SUBTEXT0]; }
+- (UIColor *)overlayIconDisabled { return colors[OVERLAY0]; }
+
+- (UIColor *)overlayFilledButtonActive { return colors[ACCENT]; }
+- (UIColor *)overlayButtonSecondary { return colors[TEXT]; }
+- (UIColor *)overlayButtonPrimary { return colors[TEXT]; }
+
+- (UIColor *)adIndicator { return colors[YELLOW]; }
+- (UIColor *)errorIndicator { return colors[RED]; }
+
+- (UIColor *)baseBackground { return colors[BASE]; }
+- (UIColor *)raisedBackground { return colors[BASE]; }
+- (UIColor *)menuBackground { return colors[BASE]; }
+- (UIColor *)invertedBackground { return colors[TEXT]; }
+- (UIColor *)additiveBackground { return colors[MANTLE]; }
+
+- (UIColor *)outline { return colors[SURFACE2]; }
 %end
 %end
 
