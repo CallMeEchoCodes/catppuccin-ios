@@ -1,7 +1,4 @@
 export TARGET := iphone:clang:latest:14.0
-ifeq ($(THEOS_PACKAGE_SCHEME), rootless)
-	export ARCHS = arm64 arm64e
-endif
 
 INSTALL_TARGET_PROCESSES = SpringBoard YouTube RedditApp
 
